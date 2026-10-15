@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.*
 import androidx.compose.ui.semantics.*
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.*
+import kotlinx.coroutines.launch
 
 private val Ember = Color(0xFFFFBE69)
 private val TorchSaver =
@@ -72,6 +73,8 @@ fun TorchPilot() {
     val best = remember(revision) { (0..9).map { prefs.getInt("stars:$it", 0) } }
     val cleared = best.count { it > 0 }
     val totalStars = best.sum()
+    val scrollState = rememberScrollState()
+    val scope = rememberCoroutineScope()
     val record = remember(revision, run.level) { prefs.getInt("moves:${run.level}", Int.MAX_VALUE) }
     fun start(index: Int) {
         run = TorchEngine.fresh(index)
@@ -79,6 +82,7 @@ fun TorchPilot() {
         message = TorchEngine.levels[index].hint
         prefs.edit().putInt("selected", index).apply()
         showLevels = false
+        scope.launch { scrollState.scrollTo(0) }
     }
     fun move(to: Int) {
         val result = TorchEngine.move(run, to)
@@ -103,7 +107,7 @@ fun TorchPilot() {
     }
     Column(
         Modifier.fillMaxSize()
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(scrollState)
             .padding(horizontal = 18.dp)
             .padding(top = 8.dp, bottom = 22.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),

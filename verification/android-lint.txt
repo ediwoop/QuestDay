@@ -56,22 +56,22 @@ app/src/main/AndroidManifest.xml:3: Warning: The attribute android:dataExtractio
    https://developer.android.com/about/versions/12/backup-restore#xml-changes
    https://goo.gle/DataExtractionRules
 
-app/src/main/java/com/gquest/questday/TorchPilot.kt:80: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+app/src/main/java/com/gquest/questday/TorchPilot.kt:83: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
         prefs.edit().putInt("selected", index).apply()
         ~~~~~~~~~~~~
-app/src/main/java/com/gquest/questday/TorchPilot.kt:93: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+app/src/main/java/com/gquest/questday/TorchPilot.kt:97: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
                 prefs
                 ^
-app/src/main/java/com/gquest/questday/TorchPilot.kt:297: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+app/src/main/java/com/gquest/questday/TorchPilot.kt:301: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
                     prefs.edit().putBoolean("sound", it).apply()
                     ~~~~~~~~~~~~
-app/src/main/java/com/gquest/questday/TorchPilot.kt:311: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+app/src/main/java/com/gquest/questday/TorchPilot.kt:315: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
                 prefs.edit().putBoolean("tutorialSeen", true).apply()
                 ~~~~~~~~~~~~
-app/src/main/java/com/gquest/questday/TorchPilot.kt:348: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+app/src/main/java/com/gquest/questday/TorchPilot.kt:352: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
                         prefs.edit().putBoolean("tutorialSeen", true).apply()
                         ~~~~~~~~~~~~
-app/src/main/java/com/gquest/questday/TorchPilot.kt:404: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+app/src/main/java/com/gquest/questday/TorchPilot.kt:408: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
                         prefs.edit().clear().putBoolean("tutorialSeen", true).apply()
                         ~~~~~~~~~~~~
 

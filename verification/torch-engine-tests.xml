@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gquest.questday.TorchEngineTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-10-15T16:24:10.405Z" hostname="local" time="0.042">
+<testsuite name="com.gquest.questday.TorchEngineTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-10-15T16:35:12.757Z" hostname="local" time="0.058">
   <properties/>
-  <testcase name="allTenLevelsHavePerfectReachableSolutions" classname="com.gquest.questday.TorchEngineTest" time="0.011"/>
+  <testcase name="allTenLevelsHavePerfectReachableSolutions" classname="com.gquest.questday.TorchEngineTest" time="0.038"/>
   <testcase name="lockedDoorRejectsWithoutKey" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
   <testcase name="brazierWorksOnlyOnce" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
-  <testcase name="depletedLightStopsMovement" classname="com.gquest.questday.TorchEngineTest" time="0.001"/>
+  <testcase name="depletedLightStopsMovement" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
   <testcase name="replayStartsFromIdenticalCleanState" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
-  <testcase name="exitNeedsRelic" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
-  <testcase name="allExpertRoutesAreOptimalForAllTreasure" classname="com.gquest.questday.TorchEngineTest" time="0.027"/>
+  <testcase name="exitNeedsRelic" classname="com.gquest.questday.TorchEngineTest" time="0.001"/>
+  <testcase name="allExpertRoutesAreOptimalForAllTreasure" classname="com.gquest.questday.TorchEngineTest" time="0.017"/>
   <testcase name="cannotWrapAcrossBoardEdges" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
   <testcase name="cannotCollectSameKeyTwice" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
   <testcase name="openingDoorSpendsKeyAndKeepsDoorOpen" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
   <testcase name="wallAndDiagonalDoNotSpendLight" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
-  <testcase name="lastPointCanWin" classname="com.gquest.questday.TorchEngineTest" time="0.001"/>
+  <testcase name="lastPointCanWin" classname="com.gquest.questday.TorchEngineTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
