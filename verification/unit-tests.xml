@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.gquest.questday.RulesTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-15T15:05:30.998Z" hostname="local" time="0.03">
+<testsuite name="com.gquest.questday.RulesTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-15T16:24:10.373Z" hostname="local" time="0.028">
   <properties/>
-  <testcase name="overdueTaskRemainsVisibleUntilCompleted" classname="com.gquest.questday.RulesTest" time="0.008"/>
+  <testcase name="overdueTaskRemainsVisibleUntilCompleted" classname="com.gquest.questday.RulesTest" time="0.007"/>
   <testcase name="levelBoundaries" classname="com.gquest.questday.RulesTest" time="0.001"/>
-  <testcase name="streakSkipsUnscheduledDays" classname="com.gquest.questday.RulesTest" time="0.012"/>
-  <testcase name="scheduleHonorsWeekdaysAndArchives" classname="com.gquest.questday.RulesTest" time="0.001"/>
-  <testcase name="restDaysRemainInHistory" classname="com.gquest.questday.RulesTest" time="0.001"/>
-  <testcase name="spendingUsesInventory" classname="com.gquest.questday.RulesTest" time="0.001"/>
+  <testcase name="streakSkipsUnscheduledDays" classname="com.gquest.questday.RulesTest" time="0.016"/>
+  <testcase name="scheduleHonorsWeekdaysAndArchives" classname="com.gquest.questday.RulesTest" time="0.0"/>
+  <testcase name="restDaysRemainInHistory" classname="com.gquest.questday.RulesTest" time="0.0"/>
+  <testcase name="spendingUsesInventory" classname="com.gquest.questday.RulesTest" time="0.002"/>
   <testcase name="rareCosmeticSpendsCrystals" classname="com.gquest.questday.RulesTest" time="0.0"/>
   <testcase name="goalsAccumulateAcrossDates" classname="com.gquest.questday.RulesTest" time="0.0"/>
   <testcase name="difficultiesAndCap" classname="com.gquest.questday.RulesTest" time="0.0"/>
-  <testcase name="completedGoalLeavesTodayOnFollowingDay" classname="com.gquest.questday.RulesTest" time="0.003"/>
+  <testcase name="completedGoalLeavesTodayOnFollowingDay" classname="com.gquest.questday.RulesTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

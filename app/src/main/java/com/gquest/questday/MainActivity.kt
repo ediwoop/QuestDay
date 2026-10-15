@@ -326,7 +326,8 @@ fun QuestApp(
             today = LocalDate.now()
         }
     }
-    val labels = listOf("Hoy", "Misiones", "Aventura", "Recompensas", "Progreso")
+    val pilotState = androidx.compose.runtime.saveable.rememberSaveableStateHolder()
+    val labels = listOf("Hoy", "Misiones", "Aventura", "Recompensas", "Progreso", "Piloto")
     val icons =
         listOf(
             Icons.Rounded.WbSunny,
@@ -334,6 +335,7 @@ fun QuestApp(
             Icons.Rounded.Explore,
             Icons.Rounded.Redeem,
             Icons.Rounded.BarChart,
+            Icons.Rounded.SportsEsports,
         )
     Scaffold(
         containerColor = Ink,
@@ -375,7 +377,14 @@ fun QuestApp(
                             selected = tab == i,
                             onClick = { tab = i },
                             icon = { Icon(icons[i], l) },
-                            label = { Text(l, fontSize = 9.sp) },
+                            label = {
+                                Text(
+                                    if (i == 3) "Premios" else l,
+                                    fontSize = 9.sp,
+                                    maxLines = 1,
+                                    softWrap = false,
+                                )
+                            },
                             colors =
                                 NavigationBarItemDefaults.colors(
                                     selectedIconColor = Ink,
@@ -408,6 +417,7 @@ fun QuestApp(
                     2 -> Adventure(s, onClaim)
                     3 -> Rewards(s, onBuy, onProfile)
                     4 -> Progress(s, today)
+                    5 -> pilotState.SaveableStateProvider("torch-pilot") { TorchPilot() }
                 }
             if (busy)
                 LinearProgressIndicator(
@@ -486,7 +496,11 @@ fun Today(
     ) {
         item {
             Eyebrow(
-                date.format(DateTimeFormatter.ofPattern("EEEE, d MMMM", Locale.forLanguageTag("es"))).uppercase()
+                date
+                    .format(
+                        DateTimeFormatter.ofPattern("EEEE, d MMMM", Locale.forLanguageTag("es"))
+                    )
+                    .uppercase()
             )
             Spacer(Modifier.height(8.dp))
             Heading(
@@ -1038,7 +1052,13 @@ fun Progress(s: QuestState, today: LocalDate) {
                                     .background(if (d == today) Lime else Lime.copy(alpha = .35f))
                             )
                             Text(
-                                d.format(DateTimeFormatter.ofPattern("EE", Locale.forLanguageTag("es"))).take(2),
+                                d.format(
+                                        DateTimeFormatter.ofPattern(
+                                            "EE",
+                                            Locale.forLanguageTag("es"),
+                                        )
+                                    )
+                                    .take(2),
                                 fontSize = 10.sp,
                                 color = Muted,
                             )
@@ -1124,7 +1144,7 @@ fun Settings(
         contentPadding = PaddingValues(20.dp, 12.dp, 20.dp, 24.dp),
         verticalArrangement = Arrangement.spacedBy(18.dp),
     ) {
-        item { Heading("A tu manera", "QuestDay 0.1.0 · Primera versión de prueba") }
+        item { Heading("A tu manera", "QuestDay 0.2.0 · Piloto de La última antorcha") }
         item {
             CardBox {
                 Text("Tu perfil", fontWeight = FontWeight.Bold)

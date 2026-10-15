@@ -1,3 +1,20 @@
+app/build.gradle.kts:18: Warning: A newer version of androidx.room:room-runtime than 2.7.2 is available: 2.8.5 [GradleDependency]
+ implementation("androidx.room:room-runtime:2.7.2")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+app/build.gradle.kts:19: Warning: A newer version of androidx.room:room-ktx than 2.7.2 is available: 2.8.5 [GradleDependency]
+ implementation("androidx.room:room-ktx:2.7.2")
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+app/build.gradle.kts:20: Warning: A newer version of androidx.room:room-compiler than 2.7.2 is available: 2.8.5 [GradleDependency]
+ ksp("androidx.room:room-compiler:2.7.2")
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
 app/src/main/AndroidManifest.xml:4: Warning: Expecting android:screenOrientation="unspecified" or "fullSensor" for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices [LockedOrientationActivity]
   <activity android:name=".MainActivity" android:exported="true" android:screenOrientation="portrait"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
                                                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,4 +56,79 @@ app/src/main/AndroidManifest.xml:3: Warning: The attribute android:dataExtractio
    https://developer.android.com/about/versions/12/backup-restore#xml-changes
    https://goo.gle/DataExtractionRules
 
-0 errors, 3 warnings
+app/src/main/java/com/gquest/questday/TorchPilot.kt:80: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+        prefs.edit().putInt("selected", index).apply()
+        ~~~~~~~~~~~~
+app/src/main/java/com/gquest/questday/TorchPilot.kt:93: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+                prefs
+                ^
+app/src/main/java/com/gquest/questday/TorchPilot.kt:297: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+                    prefs.edit().putBoolean("sound", it).apply()
+                    ~~~~~~~~~~~~
+app/src/main/java/com/gquest/questday/TorchPilot.kt:311: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+                prefs.edit().putBoolean("tutorialSeen", true).apply()
+                ~~~~~~~~~~~~
+app/src/main/java/com/gquest/questday/TorchPilot.kt:348: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+                        prefs.edit().putBoolean("tutorialSeen", true).apply()
+                        ~~~~~~~~~~~~
+app/src/main/java/com/gquest/questday/TorchPilot.kt:404: Warning: Use the KTX extension function SharedPreferences.edit instead? [UseKtx]
+                        prefs.edit().clear().putBoolean("tutorialSeen", true).apply()
+                        ~~~~~~~~~~~~
+
+   Explanation for issues of type "UseKtx":
+   The Android KTX libraries decorates the Android platform SDK as well as
+   various libraries with more convenient extension functions available from
+   Kotlin, allowing you to use default parameters, named parameters, and
+   more.
+
+   Available options:
+
+   **remove-defaults** (default is true):
+   Whether to skip arguments that match the defaults provided by the extension.
+
+   Extensions often provide default values for some of the parameters. For example:
+   ```kotlin
+   fun Path.readLines(charset: Charset = Charsets.UTF_8): List<String> { return Files.readAllLines(this, charset) }
+   ```
+   This lint check will by default automatically omit parameters that match the default, so if your code was calling
+
+   ```kotlin
+   Files.readAllLines(file, Charset.UTF_8)
+   ```
+   lint would replace this with
+   ```kotlin
+   file.readLines()
+   ```
+   rather than
+
+   ```kotlin
+   file.readLines(Charset.UTF_8
+   ```
+   You can turn this behavior off using this option.
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UseKtx">
+           <option name="remove-defaults" value="true" />
+       </issue>
+   </lint>
+   ```
+
+   **require-present** (default is true):
+   Whether to only offer extensions already available.
+
+   This option lets you only have lint suggest extension replacements if those extensions are already available on the class path (in other words, you're already depending on the library containing the extension method.)
+
+   To configure this option, use a `lint.xml` file with an <option> like this:
+
+   ```xml
+   <lint>
+       <issue id="UseKtx">
+           <option name="require-present" value="true" />
+       </issue>
+   </lint>
+   ```
+
+0 errors, 12 warnings
